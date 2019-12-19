@@ -45,7 +45,6 @@ node('master'){
         git  credentialsId: '4d5a30ef-9d64-4b8f-9a7e-3262e8befc73', url: 'https://github.com/nqping/monkey_tcloud.git'
         print('=================> 拉取代码  <=================')
     }
-
     stage('运行测试 - Monkey'){
       if (installAppRequired == "true" || installAppRequired == true){
       //这里默认使用 python3 运行脚本，注意修改 python 版本
