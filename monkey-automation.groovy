@@ -40,7 +40,6 @@ node('master'){
       //  sh 'ls'
       //  print('=================> 拉取代码  <=================')
     //}
-
     stage("checkout code"){
         print('=================> 拉取代码  <=================')
         git  credentialsId: '4d5a30ef-9d64-4b8f-9a7e-3262e8befc73', url: 'https://github.com/nqping/monkey_tcloud.git'
