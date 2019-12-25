@@ -42,13 +42,13 @@ node('master'){
     //}
     stage("checkout code"){
         print('=================> 拉取代码  <=================')
-        git  credentialsId: 'af2bdc73-932a-4af8-93dd-f3f37aa4c030', url: 'https://github.com/nqping/monkey_tcloud.git'
+        git  credentialsId: 'a0110f44-1179-4958-97f3-d365506fac2f', url: 'https://github.com/nqping/monkey_tcloud.git'
         print('=================> 拉取代码  <=================')
     }
     stage('运行测试 - Monkey'){
       if (installAppRequired == "true" || installAppRequired == true){
       //这里默认使用 python3 运行脚本，注意修改 python 版本
-      print('python3 run.py run -dn=' + deviceName + ' -pn=' + packageName + ' -rt=' + runTime + ' -adu="' + appDownloadUrl + '" -daa=' + defaultAppActivity + ' -mid=' + monkeyId + ' -tid=' + taskId + ' -turl=' + tcloudUrl + ' -rm=' + runMode + ' -iar=' + installAppRequired)
+      print('---python3 run.py run -dn=' + deviceName + ' -pn=' + packageName + ' -rt=' + runTime + ' -adu="' + appDownloadUrl + '" -daa=' + defaultAppActivity + ' -mid=' + monkeyId + ' -tid=' + taskId + ' -turl=' + tcloudUrl + ' -rm=' + runMode + ' -iar=' + installAppRequired)
         sh 'python3 run.py run -dn=' + deviceName + ' -pn=' + packageName + ' -rt=' + runTime + ' -adu="' + appDownloadUrl + '" -daa=' + defaultAppActivity + ' -mid=' + monkeyId + ' -tid=' + taskId + ' -turl=' + tcloudUrl + ' -rm=' + runMode + ' -iar=' + installAppRequired
       }else{
         print('python3 run.py run -dn=' + deviceName + ' -pn=' + packageName + ' -rt=' + runTime + ' -adu="' + appDownloadUrl + '" -daa=' + defaultAppActivity + ' -mid=' + monkeyId + ' -tid=' + taskId + ' -turl=' + tcloudUrl + ' -rm=' + runMode)
